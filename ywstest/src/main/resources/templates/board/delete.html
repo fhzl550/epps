@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout}">
+<head>
+    <title>게시판 리스트</title>
+    <script>
+        function popupClose(form) {
+            form.target=opener.name;
+            form.submit();
+            if (opener != null) {
+                opener.insert=null;
+                self.close();
+            }
+        }
+    </script>
+</head>
+<div layout:fragment="content">
+    <form enctype="multipart/form-data" name="memberInert_form" action="/board/delete.do" method="post" style="width: 500px;margin: 0 auto;" target="memberInert_form.do">
+        <p>* 조회 페이지</p>
+        <div class="box1">
+            <div class="m_box">
+                <p style="position: absolute; left: 50px; top: 70px">회사명</p>
+                <label>
+                    <input type="text" style="position: absolute; left: 100px; top: 85px">
+                </label>
+                <p style="position: absolute; left: 280px; top: 70px">비밀번호</p>
+                <label>
+                    <input type="text" style="position: absolute; left: 330px; top: 85px">
+                </label>
+            </div>
+        </div>
+        <button type="submit" onclick="window.close();alert('삭제되었습니다')">삭제</button>
+    </form>
+</div>
+</html>
+
+<style>
+    .box1 {
+        border: solid 2px black;
+        width: 750px;
+        height: 80px;
+    }
+</style>

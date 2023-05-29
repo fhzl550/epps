@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout}">
+<head>
+    <title>게시판 리스트</title>
+    <script>
+        function insertPopup() {
+            window.name="MemberServlet.do";
+            window.open("/board/register.do","insert","width=450,height=320,resizable=no,scrollbars=no,status=no")
+        }
+        function modifyPopup() {
+            window.name="MemberServlet.do";
+            window.open("/board/modify.do","insert","width=450,height=320,resizable=no,scrollbars=no,status=no")
+        }
+        function deletePopup() {
+            window.name="MemberServlet.do";
+            window.open("/board/delete.do","insert","width=450,height=320,resizable=no,scrollbars=no,status=no")
+        }
+    </script>
+</head>
+<div layout:fragment="content">
+    <form class="mx-auto" action="/board/list.do" method="post" style="width: 450px;" name="form_name" target="v">
+        <p>* 조회 페이지</p>
+        <div class="box1">
+            <div class="m_box">
+                <p style="position: absolute; left: 50px; top: 70px">회사명</p>
+                <label>
+                    <input type="text" style="position: absolute; left: 100px; top: 85px">
+                </label>
+                <p style="position: absolute; left: 280px; top: 70px">등록자</p>
+                <label>
+                    <input type="text" style="position: absolute; left: 330px; top: 85px">
+                </label>
+                <p style="position: absolute; left: 500px; top: 70px">등록일자</p>
+                <label>
+                    <input type="date" style="position: absolute; left: 570px; top: 85px">
+                </label>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: row; margin-left: 345px;width: 100%">
+            <div class="button_box1">
+                <a href="javascript:insertPopup()" style="text-decoration: none; color: black">등록</a>
+            </div>
+            <div class="button_box2">
+                <a href="javascript:modifyPopup()" style="text-decoration: none; color: black">수정</a>
+            </div>
+            <div class="button_box3">
+                <a href="javascript:deletePopup()" style="text-decoration: none; color: black">삭제</a>
+            </div>
+            <div class="button_box4">
+                <a href="" style="text-decoration: none; color: black">조회</a>
+            </div>
+        </div>
+        <!--조회한 내용 나오는 박스-->
+        <div class="c_box">
+        </div>
+
+    </form>
+</div>
+</html>
+
+<style>
+    .box1 {
+        border: solid 2px black;
+        width: 750px;
+        height: 80px;
+    }
+    .button_box1 {
+        margin-top: 10px;
+        border: 1px solid black;
+        width: 100px;
+        height: 18px;
+        text-align: center;
+    }
+    .button_box2 {
+        margin-top: 10px;
+        border: 1px solid black;
+        width: 100px;
+        height: 18px;
+        text-align: center;
+    }
+    .button_box3 {
+        margin-top: 10px;
+        border: 1px solid black;
+        width: 100px;
+        height: 18px;
+        text-align: center;
+    }
+    .button_box4 {
+        margin-top: 10px;
+        border: 1px solid black;
+        width: 100px;
+        height: 18px;
+        text-align: center;
+    }
+    .c_box {
+        margin-top: 10px;
+        border: 2px solid black;
+        width: 750px;
+        height: 300px;
+    }
+</style>

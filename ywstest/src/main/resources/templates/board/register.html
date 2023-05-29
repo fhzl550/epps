@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 등록</title>
+    <script>
+        function popupClose(form) {
+            form.target=opener.name;
+            form.submit();
+            if (opener != null) {
+                opener.insert=null;
+                self.close();
+            }
+        }
+    </script>
+</head>
+<div layout:fragment="content">
+    <form enctype="multipart/form-data" name="memberInert_form" action="/board/register.do" method="post" style="width: 500px;margin: 0 auto;" target="memberInert_form.do">
+        <p style="margin-left: -240px">* 등록 페이지</p>
+        <div class="box1">
+            <div class="m_box">
+              <p style="margin-left: 20px;float: left">회사</p>
+                <label>
+                    <input type="text" name="cId" value="이피피에스5" style="margin-top: 13px;margin-left: 10px">
+                </label>
+            </div>
+            <div style="margin-top: -40px">
+                <p style="margin-left: 200px;float: left">등록자</p>
+                <label>
+                    <input type="text" name="rId" value="윤우상" style="margin-top: 20px;margin-left: 10px">
+                </label>
+            </div>
+            <div style="margin-top: -40px;">
+                <p style="margin-left: 200px;float: left">등록일자</p>
+                <label>
+                    <input type="date" name="titleDate" style="margin-top: 20px;margin-left: 10px">
+                </label>
+            </div>
+            <div>
+                <p style="position: relative; top: -5px;left: 20px">비밀번호</p>
+                <label>
+                    <input type="text" name="pw" value="1234" style="position: relative; top: -42px; left: 80px">
+                </label>
+            </div>
+            <div>
+                <p style="position: relative; top: -77px;left: 250px;">첨부 파일</p>
+                <label>
+                    <input type="file" name="imgPath" style="position: relative; top: -115px; left: 320px">
+                </label>
+            </div>
+            <div>
+                <p style="position: relative; top: -115px;left: 20px;">제목</p>
+                <label>
+                    <input type="text" name="title" value="테스트중" style="position: relative; top: -150px; left: 80px; width: 620px">
+                </label>
+            </div>
+        </div>
+
+        <!--조회한 내용 나오는 박스-->
+        <p style="position: relative; top: 15px; left: -240px">내용</p>
+        <label>
+            <input type="text" name="detail" class="c_box">
+        </label>
+        <button type="submit" onclick="window.close();alert('등록되었습니다')">등록</button>
+    </form>
+</div>
+</html>
+<style>
+    .box1 {
+        border: solid 2px black;
+        width: 150%;
+        height: 120px;
+    }
+    .c_box {
+        margin-top: 10px;
+        border: 2px solid black;
+        width: 750px;
+        height: 200px;
+    }
+</style>
